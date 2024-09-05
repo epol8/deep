@@ -23,3 +23,12 @@ docker system prune -a --volumes -f
 
 # 6. Verificar el espacio liberado
 docker system df
+
+
+
+
+     docker build -t docker-emulator-android-30  .
+
+
+
+docker run --rm --privileged -e ANDROID_ARCH="x86" -v /dev/kvm:/dev/kvm docker-emulator-android-30
