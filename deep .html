@@ -6,3 +6,20 @@ docker rmi $(docker images -q)
 
 docker volume prune
 
+# 1. Eliminar todos los contenedores detenidos
+docker rm $(docker ps -aq)
+
+# 2. Eliminar todas las imágenes no utilizadas
+docker rmi -f $(docker images -q)
+
+# 3. Eliminar todos los volúmenes no utilizados
+docker volume prune -f
+
+# 4. Eliminar todas las redes no utilizadas
+docker network prune -f
+
+# 5. Eliminar todo (contenedores, imágenes, volúmenes y redes no utilizados)
+docker system prune -a --volumes -f
+
+# 6. Verificar el espacio liberado
+docker system df
